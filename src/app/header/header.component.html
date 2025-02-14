@@ -1,0 +1,23 @@
+<nav  class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid ">
+      <a class="navbar-brand product-page-class" routerLink="/" routerLinkActive="text-danger" [routerLinkActiveOptions]="{ exact: true }"><b>Products page</b></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarid" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarid">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/login" routerLinkActive="text-danger"><b>Login</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/register" routerLinkActive="text-danger"><b>Register</b></a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link active" routerLink="/cardicon" routerLinkActive="text-danger"><li class="bi bi-cart-fill"> ProductCounter :   {{counter}}    </li></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  

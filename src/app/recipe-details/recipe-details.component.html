@@ -1,0 +1,64 @@
+<h2 class="title-of-details">Product details</h2>
+
+<!-- <h6>  {{ releaseDate | date : 'medium' }} </h6> -->
+<div class="container vh-100">
+  <div
+    class="card shadow-sm border-0 rounded-lg p-3 d-flex flex-row align-items-center"
+    style="max-width: 650px"
+  >
+    <!-- صورة المنتج -->
+    <div class="product-img-container">
+      <img
+        [src]="productdetails.images[0]"
+        class="product-img border shadow-sm rounded-lg"
+        alt="Product Image"
+      />
+    </div>
+
+    <!-- تفاصيل المنتج -->
+    <div class="product-details flex-grow-1 ms-3">
+      <h5 class="fw-bold text-dark">{{ productdetails.title }}</h5>
+      <p class="text-muted mb-1">
+        <i class="bi bi-currency-dollar"></i> <b>{{ productdetails.price }}</b>
+      </p>
+      <p class="text-muted mb-1">
+        <i>{{ productdetails.description }}</i>
+      </p>
+
+      <!-- حالة المخزون -->
+      <span
+        *ngIf="productdetails.stock < 30"
+        class="badge bg-danger px-3 py-1 rounded-pill"
+        >Low Stock</span
+      >
+      <span
+        *ngIf="productdetails.stock >= 30"
+        class="badge bg-success px-3 py-1 rounded-pill"
+        >In Stock</span
+      >
+
+      <p class="text-muted mb-1">
+        <b>category</b> : {{ productdetails.category }}
+      </p>
+      <p class="text-muted mb-1"><b>tags</b> : {{ productdetails.tags }}</p>
+      <p class="text-muted mb-1"><b>brand</b> : {{ productdetails.brand }}</p>
+      <div class="rating-stars">
+        <span *ngFor="let star of [1, 2, 3, 4, 5]">
+          <i
+            class="bi"
+            [ngClass]="
+              star <= productdetails.rating ? 'bi-star-fill' : 'bi-star'
+            "
+          ></i>
+        </span>
+      </div>
+      <!-- زر الإضافة -->
+      <button class="btn custom-btn mt-2">
+        <i class="bi bi-cart"></i> Add to Cart
+      </button>
+      <button class="btn custom-btn mt-2">
+        <i class="bi bi-cart"></i> Buy Now
+      </button>
+    </div>
+  </div>
+</div>

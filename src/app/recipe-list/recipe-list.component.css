@@ -1,0 +1,31 @@
+.custom-btn {
+  background-color: #1d3b26; /* لون أسود فاتح */
+  color: white; /* لون النص */
+  border-radius: 40px; /* زوايا ناعمة */
+  border: none; /* إزالة الحدود الافتراضية */
+  padding: 10px 15px; /* تحسين التباعد الداخلي */
+  transition: background-color 0.3s ease, box-shadow 0.2s ease; /* تأثير ناعم */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+  width: 140px;
+}
+
+.custom-btn:hover {
+  background-color: white; /* لون أغمق عند التمرير */
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15);
+  color: black; /* تأثير ظل أقوى */
+}
+
+.price-title-class {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+.rating-stars {
+  font-size: 20px;
+  color: gold;
+  margin-bottom: 8px;
+}
+.bi-star-fill,
+.bi-star {
+  color: gold;
+}

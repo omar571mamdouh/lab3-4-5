@@ -1,0 +1,104 @@
+<form class="myform-register" [formGroup]="productForm" (ngSubmit)="registerForm()">
+  <div class="mb-3">
+    <label for="name" class="form-label">   <b>Name :</b>       </label>
+    <input type="text" class="form-control" id="name" formControlName="name" />
+
+    @if(productForm.controls['name'].touched &&
+    productForm.controls['name'].invalid){
+    @if(productForm.controls['name'].hasError('required')){
+    <div class="form-text text-danger">Name is required.</div>
+    } @else if(productForm.controls['name'].hasError('minlength')){
+    <div class="form-text text-danger">Name must be at least 3 characters.</div>
+    } @else if(productForm.controls['name'].hasError('pattern')){
+    <div class="form-text text-danger">
+      Name can only contain letters and spaces.
+    </div>
+    } }
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">   <b>Email :</b>     </label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      formControlName="email"
+    />
+
+    @if(productForm.controls['email'].touched &&
+    productForm.controls['email'].invalid){
+    @if(productForm.controls['email'].hasError('required')){
+    <div class="form-text text-danger">Email is required.</div>
+    } @else if(productForm.controls['email'].hasError('pattern')){
+    <div class="form-text text-danger">Invalid email format.</div>
+    } }
+  </div>
+
+  <div class="mb-3">
+    <label for="username" class="form-label">   <b>Username :</b>            </label>
+    <input
+      type="text"
+      class="form-control"
+      id="username"
+      formControlName="username"
+    />
+
+    @if(productForm.controls['username'].touched &&
+    productForm.controls['username'].invalid){
+    @if(productForm.controls['username'].hasError('required')){
+    <div class="form-text text-danger">Username is required.</div>
+    } @else if(productForm.controls['username'].hasError('minlength')){
+    <div class="form-text text-danger">
+      Username must be at least 3 characters.
+    </div>
+    } @else if(productForm.controls['username'].hasError('maxlength')){
+    <div class="form-text text-danger">
+      Username cannot exceed 20 characters.
+    </div>
+    } @else if(productForm.controls['username'].hasError('pattern')){
+    <div class="form-text text-danger">
+      Username can only contain letters and numbers.
+    </div>
+    } }
+  </div>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">  <b>Password :</b>      </label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      formControlName="password"
+    />
+
+    @if(productForm.controls['password'].touched &&
+    productForm.controls['password'].invalid){
+    @if(productForm.controls['password'].hasError('required')){
+    <div class="form-text text-danger">Password is required.</div>
+    } @else if(productForm.controls['password'].hasError('minlength')){
+    <div class="form-text text-danger">
+      Password must be at least 8 characters.
+    </div>
+    } @else if(productForm.controls['password'].hasError('maxlength')){
+    <div class="form-text text-danger">
+      Password cannot exceed 20 characters.
+    </div>
+    } @else if(productForm.controls['password'].hasError('pattern')){
+    <div class="form-text text-danger">
+      Password must be at least 8 characters & cannot exceed 20 characters.
+    </div>
+    } }
+  </div>
+
+  <button
+    type="submit"
+    class="btn btn-primary register-btn"
+    [disabled]="productForm.invalid"
+  >
+    Register
+  </button>
+  <hr/>
+  <div class="login-div">
+    <p><b> do not have an account ?</b> </p><a href="/login"> login</a>
+ </div>
+</form>

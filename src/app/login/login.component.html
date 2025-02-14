@@ -1,0 +1,64 @@
+<form class="myform-login" #loginForm="ngForm" (ngSubmit)="formsubmit(loginForm)">
+  <div class="mb-3">
+    <label for="email" class="form-label">      <b>Email :</b>            </label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      name="email"
+      [(ngModel)]="formValues.email"
+      required
+      pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+      #email="ngModel"
+    />
+
+    @if(email.touched && email.invalid){ @if(email.hasError('required')){
+    <div class="form-text text-danger">Email is required.</div>
+    } @else if(email.hasError('pattern')){
+    <div class="form-text text-danger">Invalid email format.</div>
+    } }
+  </div>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">  <b>Password :</b>    </label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      name="password"
+      [(ngModel)]="formValues.password"
+      required
+      minlength="8"
+      maxlength="20"
+      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,20}$"
+      #password="ngModel"
+    />
+
+    @if(password.touched && password.invalid){
+    @if(password.hasError('required')){
+    <div class="form-text text-danger">Password is required.</div>
+    } @else if(password.hasError('minlength')){
+    <div class="form-text text-danger">
+      Password must be at least 8 characters.
+    </div>
+    } @else if(password.hasError('maxlength')){
+    <div class="form-text text-danger">
+      Password cannot exceed 20 characters.
+    </div>
+    } @else if(password.hasError('pattern')){
+    <div class="form-text text-danger">
+      Password must include at least one uppercase letter, one lowercase letter,
+      and one number.
+    </div>
+    } }
+  </div>
+
+  <button type="submit" class="btn btn-primary login-btn" [disabled]="loginForm.invalid">
+    Login
+  </button>
+  <hr/>
+
+  <div class="login-div">
+    <p><b> do not have an account ?</b> </p><a href="/register"> register</a>
+ </div>
+</form>

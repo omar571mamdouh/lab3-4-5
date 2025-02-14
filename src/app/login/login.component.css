@@ -1,0 +1,19 @@
+.myform-login{
+    margin: 10px 50px;
+}
+
+.login-div > a {
+    margin: 10px auto;
+    text-decoration: none;
+    font-weight: bold;
+}
+.login-div{
+    
+    text-align: center;
+}
+.login-btn{
+    width: 70px;
+    border-radius: 12px;
+    background-color: green;
+
+}
